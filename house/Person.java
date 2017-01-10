@@ -6,8 +6,9 @@ public class Person extends Thread {
 	
     private static final int MAX_WAITING_TIME = 1000;
     private static final int MAX_HAVING_TIME = 800;
+    private static final int SLEEP_TIME = 1000;
     private final Random randomize = new Random();
-	private HouseKey key = HouseKey.getInstance();
+    private HouseKey key = HouseKey.getInstance();
     private String name;
     
     public enum State {
@@ -26,7 +27,7 @@ public class Person extends Thread {
     			key.setOwnerName(this.name);
     			this.setPersonState(Person.State.HAVING);
     		}else{
-				Thread.sleep(1000);
+				Thread.sleep(SLEEP_TIME);
     			this.setPersonState(Person.State.WAITING);
     		}
     	}
